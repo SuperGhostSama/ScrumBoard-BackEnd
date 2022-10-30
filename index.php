@@ -327,7 +327,7 @@
 	<div class="modal fade" id="modal-task">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="scripts.php" method="POST" id="form-task">
+				<form action="" method="POST" id="form-task">
 					<div class="modal-header">
 						<h5 class="modal-title">Add Task</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
@@ -337,7 +337,7 @@
 							<input type="hidden" id="task-id">
 							<div class="mb-3">
 								<label class="form-label" >Title</label>
-								<input name="title" type="text" class="form-control" id="task-title"/>
+								<input name="title" type="text" class="form-control" id="task-title" required/>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Type</label>
@@ -355,8 +355,8 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Priority</label>
-								<select class="form-select" id="task-priority" name="taskPriority">
-									<option value="">Please select</option>
+								<select class="form-select" id="task-priority" name="taskPriority" required>
+									<option selected disabled value="">Please select</option>
 									<option value="1">Low</option>
 									<option value="2">Medium</option>
 									<option value="3">High</option>
@@ -365,20 +365,20 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Status</label>
-								<select class="form-select" id="task-status" name="taskStatus">
-									<option value="">Please select</option>
-									<option value="To Do">To Do</option>
-									<option value="In Progress">In Progress</option>
-									<option value="Done">Done</option>
+								<select class="form-select" id="task-status" name="taskStatus"required>
+									<option selected disabled value="">Please select</option>
+									<option value="1">To Do</option>
+									<option value="2">In Progress</option>
+									<option value="3">Done</option>
 								</select>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Date</label>
-								<input type="date" class="form-control" id="task-date" name="taskDate"/>
+								<input type="date" class="form-control" id="task-date" name="taskDate" required/>
 							</div>
 							<div class="mb-0">
 								<label class="form-label">Description</label>
-								<textarea class="form-control" rows="10" id="task-description" name="taskDescription"></textarea>
+								<textarea class="form-control" rows="10" id="task-description" name="taskDescription" required></textarea>
 							</div>
 						
 					</div>
