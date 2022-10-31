@@ -272,7 +272,7 @@
 								//PHP CODE HERE
 								//DATA FROM getTasks() FUNCTION
 							while($row = mysqli_fetch_assoc($toDo)) { ?>
-									<button class="list-group-item list-group-item-action d-flex">
+									<a href="update.php?id=<?php echo $row['id'] ?>" class="list-group-item list-group-item-action d-flex">
 										<div class="me-3 fs-16px">
 											<i class="far fa-question-circle text-green fa-fw"></i> 
 										</div>
@@ -287,7 +287,7 @@
 												<span class="badge bg-gray-300 text-gray-900"><?php echo $row['typeName'] ?></span>
 											</div>
 										</div>
-									</button>
+									</a>
 							<?php } ?>
 						</div>
 					</div>
@@ -309,7 +309,7 @@
 								//PHP CODE HERE
 								//DATA FROM getTasks() FUNCTION
 								while($row = mysqli_fetch_assoc($inProgress)) { ?>
-									<button class="list-group-item list-group-item-action d-flex">
+									<a href="update.php?id=<?php echo $row['id'] ?>"  class="list-group-item list-group-item-action d-flex">
 										<div class="me-3 fs-16px">
 											<i class="fas fa-circle-notch fa-spin text-green fa-fw"></i> 
 											
@@ -325,7 +325,7 @@
 												<span class="badge bg-gray-300 text-gray-900"><?php echo $row['typeName'] ?></span>
 											</div>
 										</div>
-									</button>
+								</a>
 							<?php } 
 							?>
 						</div>
@@ -348,7 +348,7 @@
 								//PHP CODE HERE
 								//DATA FROM getTasks() FUNCTION
 								while($row = mysqli_fetch_assoc($done)) { ?>
-									<button class="list-group-item list-group-item-action d-flex">
+									<a href="update.php?id=<?php echo $row['id'] ?>" class="list-group-item list-group-item-action d-flex">
 										<div class="me-3 fs-16px">
 											<i class="far fa-circle-check text-green fa-fw"></i> 
 										</div>
@@ -363,7 +363,7 @@
 												<span class="badge bg-gray-300 text-gray-900"><?php echo $row['typeName'] ?></span>
 											</div>
 										</div>
-									</button>
+									</a>
 							<?php } 
 							?>
 						</div>
