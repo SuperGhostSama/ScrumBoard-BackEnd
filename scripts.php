@@ -7,7 +7,7 @@ include 'database.php';
 session_start();
 
 //getting all tasks to print them on index page
-$allTasks = getTasks();
+// $allTasks = getTasks();
 
 //ROUTING
 if (isset($_POST['save'])){
@@ -23,26 +23,28 @@ if (isset($_POST['update']))      updateTask();
 if (isset($_POST['delete']))      deleteTask();
 
 
-function getTasks()
+function getTasks($selector)
 {
     //CODE HERE
-    $query="SELECT
-        tasks.id ,tasks.title ,tasks.type_id ,tasks.priority_id ,tasks.status_id ,tasks.task_datetime ,tasks.description ,
-        types.name ,
-        priorities.name ,
-        statuses.name 
-        FROM tasks
-        INNER JOIN types
-        ON types.id = tasks.type_id
-        INNER JOIN priorities
-        ON priorities.id = tasks.priority_id
-        INNER JOIN statuses
-        ON statuses.id = tasks.status_id
-        ";
+                $query="SELECT
+                    tasks.id ,tasks.title ,tasks.type_id ,tasks.priority_id ,tasks.status_id ,tasks.task_datetime ,tasks.description ,
+                    types.name AS typeName,
+                    priorities.name AS priorityName,
+                    statuses.name AS statusName
+                    FROM tasks
+                    INNER JOIN types
+                    ON types.id = tasks.type_id
+                    INNER JOIN priorities
+                    ON priorities.id = tasks.priority_id
+                    INNER JOIN statuses
+                    ON statuses.id = tasks.status_id WHERE statuses.name='$selector'
+                    ";
+    // $query="SELECT tasks.id ,title ,tasks.type_id,tasks.priority_id ,tasks.status_id ,tasks.task_datetime ,tasks.description , types.name ,priorities.name , statuses.name FROM statuses , tasks,priorities WHERE tasks.type_id=types.id AND tasks.priority_id=priorities.id AND statuses.id = tasks.status_id ";
+
     //SQL SELECT
     global $connection;//to make it visible into the scope of the function 
     $result=mysqli_query($connection, $query);
-    echo "Fetch all tasks";
+    
     return $result;
 }
 

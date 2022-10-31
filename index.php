@@ -1,5 +1,8 @@
 <?php
     include('scripts.php');
+	$toDo = getTasks("To Do");
+	$inProgress = getTasks("In Progress");
+	$done = getTasks("Done");
 ?>
 
 <!DOCTYPE html>
@@ -268,7 +271,24 @@
 							<?php
 								//PHP CODE HERE
 								//DATA FROM getTasks() FUNCTION
-							?>
+							while($row = mysqli_fetch_assoc($toDo)) { ?>
+									<button class="list-group-item list-group-item-action d-flex">
+										<div class="me-3 fs-16px">
+											<i class="far fa-question-circle text-green fa-fw"></i> 
+										</div>
+										<div class="flex-fill">
+											<div class="fs-14px lh-12 mb-2px fw-bold text-dark"><?php echo $row['title'] ?></div>
+											<div class="mb-1 fs-12px">
+												<div class="text-gray-600 flex-1"><?php echo $row['task_datetime'] ?></div>
+												<div class="text-gray-900 flex-1"><?php echo $row['description'] ?></div>
+											</div>
+											<div class="mb-1">
+												<span class="badge bg-primary"><?php echo $row['priorityName'] ?></span>
+												<span class="badge bg-gray-300 text-gray-900"><?php echo $row['typeName'] ?></span>
+											</div>
+										</div>
+									</button>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
@@ -288,6 +308,25 @@
 							<?php
 								//PHP CODE HERE
 								//DATA FROM getTasks() FUNCTION
+								while($row = mysqli_fetch_assoc($inProgress)) { ?>
+									<button class="list-group-item list-group-item-action d-flex">
+										<div class="me-3 fs-16px">
+											<i class="fas fa-circle-notch fa-spin text-green fa-fw"></i> 
+											
+										</div>
+										<div class="flex-fill">
+											<div class="fs-14px lh-12 mb-2px fw-bold text-dark"><?php echo $row['title'] ?></div>
+											<div class="mb-1 fs-12px">
+												<div class="text-gray-600 flex-1"><?php echo $row['task_datetime'] ?></div>
+												<div class="text-gray-900 flex-1"><?php echo $row['description'] ?></div>
+											</div>
+											<div class="mb-1">
+												<span class="badge bg-primary"><?php echo $row['priorityName'] ?></span>
+												<span class="badge bg-gray-300 text-gray-900"><?php echo $row['typeName'] ?></span>
+											</div>
+										</div>
+									</button>
+							<?php } 
 							?>
 						</div>
 					</div>
@@ -308,6 +347,24 @@
 							<?php
 								//PHP CODE HERE
 								//DATA FROM getTasks() FUNCTION
+								while($row = mysqli_fetch_assoc($done)) { ?>
+									<button class="list-group-item list-group-item-action d-flex">
+										<div class="me-3 fs-16px">
+											<i class="far fa-circle-check text-green fa-fw"></i> 
+										</div>
+										<div class="flex-fill">
+											<div class="fs-14px lh-12 mb-2px fw-bold text-dark"><?php echo $row['title'] ?></div>
+											<div class="mb-1 fs-12px">
+												<div class="text-gray-600 flex-1"><?php echo $row['task_datetime'] ?></div>
+												<div class="text-gray-900 flex-1"><?php echo $row['description'] ?></div>
+											</div>
+											<div class="mb-1">
+												<span class="badge bg-primary"><?php echo $row['priorityName'] ?></span>
+												<span class="badge bg-gray-300 text-gray-900"><?php echo $row['typeName'] ?></span>
+											</div>
+										</div>
+									</button>
+							<?php } 
 							?>
 						</div>
 					</div>
