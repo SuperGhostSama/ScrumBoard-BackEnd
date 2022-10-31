@@ -59,11 +59,23 @@ function saveTask($title,$type,$priority,$status,$date,$description)
     
 }
 
-function updateTask($id,$title,$type,$priority,$status,$date,$description)
+function updateTask()
 {
+    $title = $_POST['title'];
+    $type = $_POST['taskType'];
+    $priority = $_POST['taskPriority'];
+    $status = $_POST['taskStatus'];
+    $date = $_POST['taskDate'];
+    $description = $_POST['taskDescription'];
+    $id = $_GET['id'];
     //CODE HERE 
     $query= "UPDATE tasks 
-            SET title='$title', description='$description', type_id='$type', priority_id ='$priority', ";
+            SET title='$title', description='$description',type_id='$type', priority_id ='$priority', status_id='$status', task_datetime='$date'
+            WHERE id='$id'";
+            
+    global $connection;
+    mysqli_query($connection, $query);
+
     //SQL UPDATE
     $_SESSION['message'] = "Task has been updated successfully !";
     header('location: index.php');

@@ -1,5 +1,6 @@
 <?php 
 include 'database.php';
+include 'scripts.php';
 if(isset($_GET['id'])){
     $id=$_GET['id'];
     $query="SELECT * from tasks WHERE id='$id'";
@@ -9,6 +10,10 @@ $result=mysqli_query($connection, $query);
 $task=mysqli_fetch_assoc($result);
 
 }
+
+
+if (isset($_POST['update']))
+        unset($_POST['update']);
 ?>
 
 <!DOCTYPE html>
@@ -83,9 +88,9 @@ $task=mysqli_fetch_assoc($result);
 						
 					</div>
 					<div class="modal-footer">
-						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="delete" class="btn btn-danger task-action-btn" id="task-delete-btn">Delete</a>
-						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</a>
+						<button class="btn btn-white" data-bs-dismiss="modal">Cancel</button>
+						<button type="submit" name="delete" class="btn btn-danger task-action-btn" id="task-delete-btn">Delete</button>
+						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</button>
 					</div>
 				</form>
 			</div>
