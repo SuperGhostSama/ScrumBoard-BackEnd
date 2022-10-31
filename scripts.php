@@ -84,7 +84,13 @@ function updateTask()
 function deleteTask()
 {
     //CODE HERE
+    $id = $_GET['id'];
     //SQL DELETE
+    $query = "DELETE FROM tasks WHERE id='$id'";
+
+    global $connection;
+    mysqli_query($connection, $query);
+    
     $_SESSION['message'] = "Task has been deleted successfully !";
     header('location: index.php');
 }
