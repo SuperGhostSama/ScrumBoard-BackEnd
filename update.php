@@ -35,7 +35,7 @@ if (isset($_POST['update']))
 				<form action="" method="POST" id="form-task">
 					<div class="modal-header">
 						<h5 class="modal-title">Add Task</h5>
-						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
+						<a href="index.php" class="btn-close"></a>
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
@@ -88,7 +88,7 @@ if (isset($_POST['update']))
 						
 					</div>
 					<div class="modal-footer">
-						<button class="btn btn-white" data-bs-dismiss="modal">Cancel</button>
+						<a href="index.php" class="btn btn-white" >Cancel</a>
 						<button type="submit" name="delete" class="btn btn-danger task-action-btn" id="task-delete-btn">Delete</button>
 						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</button>
 					</div>

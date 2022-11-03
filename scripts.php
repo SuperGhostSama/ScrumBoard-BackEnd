@@ -94,3 +94,7 @@ function deleteTask()
     $_SESSION['message'] = "Task has been deleted successfully !";
     header('location: index.php');
 }
+
+function counter(){
+    
+}
