@@ -258,7 +258,7 @@
 				<div class="col-xl-4 col-lg-6">
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
-							<h4 class="panel-title">To do (<span id="to-do-tasks-count">0</span>)</h4>
+							<h4 class="panel-title">To do (<span id="to-do-tasks-count"><?= counterToDo()?></span>)</h4>
 							<div class="panel-heading-btn">
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
@@ -279,7 +279,7 @@
 										<div class="flex-fill">
 											<div class="fs-14px lh-12 mb-2px fw-bold text-dark"><?php echo $row['title'] ?></div>
 											<div class="mb-1 fs-12px">
-												<div class="text-gray-600 flex-1"><?php echo $row['task_datetime'] ?></div>
+												<div class="text-gray-600 flex-1"><?php echo '#' .$row['id'].' '.$row['task_datetime'] ?></div>
 												<div class="text-gray-900 flex-1"><?php echo $row['description'] ?></div>
 											</div>
 											<div class="mb-1">
@@ -295,7 +295,7 @@
 				<div class="col-xl-4 col-lg-6">
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
-							<h4 class="panel-title">In Progress (<span id="in-progress-tasks-count">0</span>)</h4>
+							<h4 class="panel-title">In Progress (<span id="in-progress-tasks-count"><?= counterInProgress()?></span>)</h4>
 							<div class="panel-heading-btn">
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
@@ -317,7 +317,7 @@
 										<div class="flex-fill">
 											<div class="fs-14px lh-12 mb-2px fw-bold text-dark"><?php echo $row['title'] ?></div>
 											<div class="mb-1 fs-12px">
-												<div class="text-gray-600 flex-1"><?php echo $row['task_datetime'] ?></div>
+												<div class="text-gray-600 flex-1"><?php echo '#' .$row['id'].' '.$row['task_datetime'] ?></div>
 												<div class="text-gray-900 flex-1"><?php echo $row['description'] ?></div>
 											</div>
 											<div class="mb-1">
@@ -334,7 +334,7 @@
 				<div class="col-xl-4 col-lg-6">
 					<div class="panel panel-inverse">
 						<div class="panel-heading">
-							<h4 class="panel-title">Done (<span id="done-tasks-count">0</span>)</h4>
+							<h4 class="panel-title">Done (<span id="done-tasks-count"><?= counterDone()?></span>)</h4>
 							<div class="panel-heading-btn">
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
@@ -355,7 +355,7 @@
 										<div class="flex-fill">
 											<div class="fs-14px lh-12 mb-2px fw-bold text-dark"><?php echo $row['title'] ?></div>
 											<div class="mb-1 fs-12px">
-												<div class="text-gray-600 flex-1"><?php echo $row['task_datetime'] ?></div>
+												<div class="text-gray-600 flex-1"><?php echo '#' .$row['id'].' '.$row['task_datetime'] ?></div>
 												<div class="text-gray-900 flex-1"><?php echo $row['description'] ?></div>
 											</div>
 											<div class="mb-1">

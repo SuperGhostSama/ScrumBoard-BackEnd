@@ -7,19 +7,38 @@ include 'database.php';
 session_start();
 
 //ROUTING
-if (isset($_POST['save'])){
-    $title = $_POST['title'];
-    $type = $_POST['taskType'];
-    $priority = $_POST['taskPriority'];
-    $status = $_POST['taskStatus'];
-    $date = $_POST['taskDate'];
-    $description = $_POST['taskDescription'];
-    saveTask($title,$type,$priority,$status,$date,$description);
+if (isset($_POST['save'])){       saveTask($title,$type,$priority,$status,$date,$description);
 }
 if (isset($_POST['update']))      updateTask($id,$title,$type,$priority,$status,$date,$description);
 if (isset($_POST['delete']))      deleteTask();
 
+                //counters
+function counterToDo(){
+    $query="SELECT COUNT(id) as compteur FROM `tasks` WHERE status_id = 1";
+    global $connection;//to make it visible into the scope of the function 
+    $result=mysqli_query($connection, $query);
+    $result= mysqli_fetch_assoc($result);
+    return $result['compteur'];
+}
+function counterInProgress(){
+    $query="SELECT COUNT(id) as compteur FROM `tasks` WHERE status_id = 2";
+    global $connection;//to make it visible into the scope of the function 
+    $result=mysqli_query($connection, $query);
+    $result= mysqli_fetch_assoc($result);
+    return $result['compteur'];
+}
+function counterDone(){
+    $query="SELECT COUNT(id) as compteur FROM `tasks` WHERE status_id = 3";
+    global $connection;//to make it visible into the scope of the function 
+    $result=mysqli_query($connection, $query);
+    $result= mysqli_fetch_assoc($result);
+    return $result['compteur'];
+}
 
+
+
+
+//DISPLAY FUNCTION
 function getTasks($selector)
 {
     //CODE HERE
@@ -43,10 +62,15 @@ function getTasks($selector)
     return $result;
 }
 
-
+//SAVE FUNCTION
 function saveTask($title,$type,$priority,$status,$date,$description)
 {
-
+    $title = $_POST['title'];
+    $type = $_POST['taskType'];
+    $priority = $_POST['taskPriority'];
+    $status = $_POST['taskStatus'];
+    $date = $_POST['taskDate'];
+    $description = $_POST['taskDescription'];
     //SQL INSERT
     $query = "INSERT INTO tasks(title, type_id, priority_id, status_id, task_datetime, description) VALUES ('$title','$type','$priority','$status','$date','$description')";
 
@@ -58,7 +82,7 @@ function saveTask($title,$type,$priority,$status,$date,$description)
     header('location:index.php');
     
 }
-
+//UPDATE FUNCTION
 function updateTask()
 {
     $title = $_POST['title'];
@@ -81,6 +105,7 @@ function updateTask()
     header('location: index.php');
 }
 
+//DELETE FUNCTION
 function deleteTask()
 {
     //CODE HERE
@@ -95,6 +120,3 @@ function deleteTask()
     header('location: index.php');
 }
 
-function counter(){
-    
-}
